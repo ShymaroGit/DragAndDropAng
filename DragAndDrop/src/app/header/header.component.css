@@ -1,0 +1,16 @@
+header {
+  position: relative;
+
+  height: var(--header-height);
+  width: 100%;
+
+  box-shadow: 0px 0px 1px black;
+  display: flex;
+}
+
+.logo {
+  height: 100%;
+  width: var(--header-height);
+  box-shadow: 0 px 0px 1px blue;
+  background-color: rgba(10, 10, 10, 0.75);
+}

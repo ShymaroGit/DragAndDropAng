@@ -1,0 +1,7 @@
+nav {
+  position: fixed;
+  width: 150px;
+  height: calc(100% - var(--footer-height) - var(--header-height));
+
+  box-shadow: 0 0 1px black;
+}
