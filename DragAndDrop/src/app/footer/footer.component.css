@@ -6,5 +6,5 @@ footer {
   height: var(--footer-height);
   width: 100%;
 
-  box-shadow: 0px 0px 1px black;
+  box-shadow: inset 0px 0px 0px 1px purple;
 }

@@ -1,6 +1,6 @@
 main {
   position: absolute;
-  box-shadow: 0 0 1px red;
+  box-shadow: inset 0px 0px 0px 1px red;
   height: calc(100% - var(--footer-height) - var(--header-height));
   width: calc(100% - 150px);
   left: 150px;
