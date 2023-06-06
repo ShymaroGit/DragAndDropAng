@@ -1,8 +1,0 @@
-main {
-  position: absolute;
-  box-shadow: inset 0px 0px 0px 1px red;
-  height: calc(100% - var(--footer-height) - var(--header-height));
-  width: calc(100% - 150px);
-  left: 150px;
-  padding: 5px;
-}
