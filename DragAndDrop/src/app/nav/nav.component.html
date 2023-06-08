@@ -1,1 +1,14 @@
 <p>nav works!</p>
+<div id="mydiv">
+  <header
+    id="mydivheader"
+    (mousedown)="dragMouseDown($event)"
+    (mousemove)="elementDrag($event)"
+    (mouseup)="closeDragElement()"
+  >
+    Clic to move
+  </header>
+  <p>Move</p>
+  <p>This</p>
+  <p>div</p>
+</div>
