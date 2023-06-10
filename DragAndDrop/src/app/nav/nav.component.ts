@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -6,14 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
-  pos1 = 0;
-  pos2 = 0;
+  @Input() pos1 = 0;
+  @Input() pos2 = 0;
   pos3 = 0;
   pos4 = 0;
   top = 0;
+  clicked = false;
 
   ngOnInit(): void {
     this.dragElement(document.getElementById('mydiv'));
+    let elmnt = document.getElementById('mydiv');
+    let offTop = elmnt!.offsetTop + this.pos2;
+    let offLeft = elmnt!.offsetLeft + this.pos1;
+    elmnt!.style.top = offTop + 'px';
+    elmnt!.style.left = offLeft + 'px';
   }
 
   dragElement(elmnt: any) {
@@ -35,9 +41,17 @@ export class NavComponent implements OnInit {
     this.pos3 = e.clientX;
     this.pos4 = e.clientY;
     console.log(this.pos3);
+    this.clicked = true;
+    /*document.onmouseup = this.closeDragElement;
+    document.onmousemove = this.elementDrag;*/
+  }
 
-    document.onmouseup = this.closeDragElement;
-    document.onmousemove = this.elementDrag;
+  dragMouseUp(e: any) {
+    console.log('mouse up');
+    e = e || window.event;
+    e.preventDefault();
+
+    this.clicked = false;
   }
 
   elementDrag(e: any) {
@@ -49,12 +63,16 @@ export class NavComponent implements OnInit {
     this.pos2 = this.pos4 - e.clientY;
     this.pos3 = e.clientX;
     this.pos4 = e.clientY;
+    console.log(this.pos1);
 
-    let elmnt = document.getElementById('mydiv');
-    let offTop = elmnt!.offsetTop - this.pos2;
-    let offLeft = elmnt!.offsetLeft - this.pos1;
-    elmnt!.style.top = offTop + 'px';
-    elmnt!.style.left = offLeft + 'px';
+    if (this.clicked) {
+      let elmnt = document.getElementById('mydiv');
+      let offTop = elmnt!.offsetTop - this.pos2;
+      let offLeft = elmnt!.offsetLeft - this.pos1;
+      console.log(offTop);
+      elmnt!.style.top = offTop + 'px';
+      elmnt!.style.left = offLeft + 'px';
+    }
   }
 
   closeDragElement() {
