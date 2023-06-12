@@ -1,0 +1,16 @@
+<p>nav works!</p>
+<div (mousemove)="elementDrag($event)" (mouseup)="dragMouseUp($event)">
+  <div class="mydiv" id="mydiv{{ getStaticCount() }}">
+    <header
+      class="mydivheader"
+      id="mydiv{{ getStaticCount() }}header{{ getStaticCount() }}"
+      (mousedown)="dragMouseDown($event)"
+      (mouseleave)="dragMouseUp($event)"
+    >
+      Clic to move : {{ getStaticCount() }}
+    </header>
+    <p>Move</p>
+    <p>This</p>
+    <p>div</p>
+  </div>
+</div>
